@@ -1,0 +1,169 @@
+/* Center the flashcard at the top of the screen */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+.flashcard {
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-input-section {
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 0.95em;
+  color: #333;
+}
+
+#date-input {
+  padding: 5px;
+  font-size: 14px;
+  width: 160px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+#date-input:focus {
+  border-color: #4caf50;
+  outline: none;
+  background-color: #fff;
+}
+
+#error-message {
+  font-size: 0.9em;
+  color: red;
+  height: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#category {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#question {
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+#answer {
+  font-size: 1.1em;
+  margin: 20px 0;
+  min-height: 40px;
+  display: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#response-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#show-answer {
+  background-color: #4caf50;
+  color: white;
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+#show-answer[disabled] {
+  background-color: white;
+  color: black; /* Default for non-tagged text */
+}
+
+#knew-it {
+  background-color: #2196f3;
+  color: white;
+  margin: 0 30px;
+}
+
+#missed-it {
+  background-color: #f44336;
+  color: white;
+}
+
+#last-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+#next-review {
+  background-color: #ff9800;
+  color: white;
+}
+
+#review-button {
+  background-color: #9c27b0;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.date-input-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.date-input-section label, 
+.date-input-section input {
+  display: inline;
+  margin-bottom: 0 !important;
+}
+
+#title {
+  background-color: #fffacd;
+  padding: 3px 8px;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#flashcard-image {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.red {
+  color: red !important;
+}
