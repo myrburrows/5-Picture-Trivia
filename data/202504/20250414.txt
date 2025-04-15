@@ -1,0 +1,25 @@
+A1	4/14/2025	Who painted this?	Leonardo da Vinci painted the Mona Lisa.	monaLisa.png
+A2	4/14/2025	When was the Mona Lisa painted: 1400's, 1500's, or 1600's?	Between 1503 and 1506	monaLisa.png
+A3	4/14/2025	What is the medium of the Mona Lisa?	Oil painting on poplar wood panel.	monaLisa.png
+A4	4/14/2025	Where is the painting housed now?	the Louvre Museum, Paris	monaLisa.png
+A5	4/14/2025	Was the Mona Lisa ever stolen?	Yes, stolen from the Louvre in 1911 and recovered itn 1913.	monaLisa.png
+B1	4/14/2025	What molecule is depicted?	Water molecule	waterMolecule.png
+B2	4/14/2025	What is term for water turning from liquid to gas?	Vaporization	waterMolecule.png
+B3	4/14/2025	At what temperature does water convert from liquid to gas?	100°C (212°F), known as the boiling point.	waterMolecule.png
+B4	4/14/2025	What kind of bond holds the hydrogen and oxygen atoms together?	Covalent bond	waterMolecule.png
+B5	4/14/2025	What force causes water's surface tension?	Hydrogen bonding	waterMolecule.png
+C1	4/14/2025	Which French general is depicted?	Napoleon Bonaparte	napoleonBonaparte.png
+C2	4/14/2025	Which famous battle in 1815 marked Napoleon’s final defeat?	Battle of Waterloo	napoleonBonaparte.png
+C3	4/14/2025	What title did Napoleon give himself in 1804?	Emperor of the French	napoleonBonaparte.png
+C4	4/14/2025	What was the name of Napoleon’s first wife?	Josephine. Joséphine de Beauharnais	napoleonBonaparte.png
+C5	4/14/2025	To which island was Napoleon exiled in 1814, but later returned?	Elba	napoleonBonaparte.png
+D1	4/14/2025	What is the country and its capital in the photo?	Spain. Madrid.	mapOfSpain.png
+D2	4/14/2025	What Spanish dish is a rice-based meal often cooked with seafood, chicken, or vegetables?	Paella	mapOfSpain.png
+D3	4/14/2025	Which Spanish festival involves running in the streets of Pamplona?	Running of the Bulls	mapOfSpain.png
+D4	4/14/2025	What is the name of the traditional Spanish dance that originated in Andalusia?	Flamenco	mapOfSpain.png
+D5	4/14/2025	Which famous Spanish artist painted "Guernica"?	Pablo Picasso	mapOfSpain.png
+Bonus 1	4/14/2025	At what temperature does water convert from liquid to solid?	0°C (32°F), known as the freezing point.	waterMolecule.png
+Bonus 2	4/14/2025	What 3 countries have land borders with Spain?	France, Portugal, and Andorra (a principality). Gibraltar is a British territory.	mapOfSpain.png
+Bonus 3	4/14/2025	What feature of the subject has sparked endless debate?	The smile. It's an enigmatic, subtle expression.	monaLisa.png
+Bonus 4	4/14/2025	On what island was Napoleon born?	Corsica	napoleonBonaparte.png
+Bonus 5	4/14/2025	What desert in Almeria is Europe's only true desert?	Tabernas Desert	mapOfSpain.png
