@@ -1,0 +1,24 @@
+4/25/2025	A1	Sports	American Football	What NFL quarterback, primarily a NYJet, is pictured?	Joe Namath	joenamath.png
+4/25/2025	A2	Sports	American Football	What nickname was Joe Namath famously known by?	Broadway Joe	joenamath.png
+4/25/2025	A3	Sports	American Football	What college did Joe Namath play football for?	Alabama	joenamath.png
+4/25/2025	A4	Sports	American Football	Which team did the Jets defeat in Super Bowl III?	Baltimore Colts	joenamath.png
+4/25/2025	A5	Sports	American Football	What league drafted Joe Namath in 1965?	AFL	joenamath.png
+4/25/2025	A6	Sports	American Football	In which city was Joe Namath born?	Beaver Falls, Pennsylvania	joenamath.png
+4/25/2025	B1	Nature	Land Animals	What is the largest living land animal, this one an African bush variety?	Elephant	elephant.png
+4/25/2025	B2	Nature	Land Animals	Which elephant species has larger ears, Asian or African?	African	elephant.png
+4/25/2025	B3	Nature	Land Animals	Which elephant species has a concave back, Asian or African?	African	elephant.png
+4/25/2025	B4	Nature	Land Animals	What is a group of elephants called?	Herd	elephant.png
+4/25/2025	B5	Nature	Land Animals	Elephant tusks are primarily dentin, commonly called ______.	Ivory	elephant.png
+4/25/2025	B6	Nature	Land Animals	How long is an elephant pregnant?	22 months	elephant.png
+4/25/2025	C1	History	Wars and Battles	What major armed conflict is depicted in this picture?	Korean War	koreanwar.png
+4/25/2025	C2	History	Wars and Battles	Who led UN forces as Supreme Commander?	Douglas MacArthur	koreanwar.png
+4/25/2025	C3	History	Wars and Battles	Who was the U.S. president during most of the Korean War?	Harry Truman	koreanwar.png
+4/25/2025	C4	History	Wars and Battles	What latitude parallel divided Korea before the war?	38th Parallel	koreanwar.png
+4/25/2025	C5	History	Wars and Battles	What was the name of the surprise North Korean offensive in 1950?	Incheon Landing	koreanwar.png
+4/25/2025	C6	History	Wars and Battles	Which agreement halted hostilities in 1953?	Panmunjom Accord	koreanwar.png
+4/25/2025	D1	Geography	Islands of the World	This island in Hawii has the capital city Honolulu	Oahu	oahu.jpg
+4/25/2025	D2	Geography	Islands of the World	What is the name of the volcanic crater, a popular hiking spot near Honolulu?	Diamond Head.	oahu.jpg
+4/25/2025	D3	Geography	Islands of the World	What is the name of the traditional Hawaiian feast often celebrated on Oahu?	Luau	oahu.jpg
+4/25/2025	D4	Geography	Islands of the World	What is the name of the largest outdoor shopping center in the world, located in Oahu?	Ala Moana Center.	oahu.jpg
+4/25/2025	D5	Geography	Islands of the World	Which famous beach on Oahu is known for its massive winter waves?	The North Shore, particularly Banzai Pipeline.	oahu.jpg
+4/25/2025	D6	Geography	Islands of the World	Which historic event occurred at Pearl Harbor on December 7, 1941?	Japanese attack on the US fleet	oahu.jpg

@@ -1,0 +1,24 @@
+4/26/2025	A1	Entertainment	Top Movies	Scarlett and Rhett are lead characters in what movie?	Gone With The Wind	gonewiththewind.png
+4/26/2025	A2	Entertainment	Top Movies	What is the name of the plantation where Scarlett O’Hara lives?	Tara	gonewiththewind.png
+4/26/2025	A3	Entertainment	Top Movies	Which actor played Rhett Butler?	Clark Gable	gonewiththewind.png
+4/26/2025	A4	Entertainment	Top Movies	Who played the role of Scarlett O'Hara?	Vivien Leigh	gonewiththewind.png
+4/26/2025	A5	Entertainment	Top Movies	Which character dies after falling off her horse?	Bonnie Blue Butler	gonewiththewind.png
+4/26/2025	A6	Entertainment	Top Movies	What is Scarlett’s famous line at the end of the film? "After all," ______.	tomorrow is another day	gonewiththewind.png
+4/26/2025	B1	History	Great Projects	What railroad project is depicted in the picture?	The Transcontinental Railroad	transcontinentalrailway.png
+4/26/2025	B2	History	Great Projects	Which direction did the Union Pacific Railroad build from?	Westward from Omaha, Nebraska	transcontinentalrailway.png
+4/26/2025	B3	History	Great Projects	Which direction did the Central Pacific Railroad build from and from what city?	Eastward from Sacramento, California	transcontinentalrailway.png
+4/26/2025	B4	History	Great Projects	Who was the U.S. President at the time of the railroad's completion?	Ulysses S. Grant	transcontinentalrailway.png
+4/26/2025	B5	History	Great Projects	What year was the U.S. Transcontinental Railroad completed: 1849, 1869 or 1889?	1869	transcontinentalrailway.png
+4/26/2025	B6	History	Great Projects	What was the name of the ceremony where the last rail was laid?	The Golden Spike Ceremony	transcontinentalrailway.png
+4/26/2025	C1	Geography	US Cities	This US city is made up of 5 boroughs.	New York City, NY	mapnewyorkcity.png
+4/26/2025	C2	Geography	US Cities	Which borough is most densely populated?	Manhattan	mapnewyorkcity.png
+4/26/2025	C3	Geography	US Cities	What river separates Manhattan from New Jersey?	Hudson River	mapnewyorkcity.png
+4/26/2025	C4	Geography	US Cities	What famous park is locates in the center of Manhattan?	Central Park	mapnewyorkcity.png
+4/26/2025	C5	Geography	US Cities	What are the three major bridges that go from Manhattan to Brooklyn?	Brooklyn, Manhattan, Williamsburg	mapnewyorkcity.png
+4/26/2025	C6	Geography	US Cities	What island served as the gateway for millions of immigrants entering the U.S.?	Ellis Island	mapnewyorkcity.png
+4/26/2025	D1	Lit and Art	Writers	A British author and philanthropist, she is the author of Harry Potter.	J.K. Rowling	jkrowling.png
+4/26/2025	D2	Lit and Art	Writers	How many of Rowling's Harry Potter fantasy novels have been published?	7	jkrowling.png
+4/26/2025	D3	Lit and Art	Writers	What 2016 film was written by Rowling, the first of the "Fantastic Beasts" series.	Fantastic Beasts and Where to Find Them".	jkrowling.png
+4/26/2025	D4	Lit and Art	Writers	What pseudonym does she use for detective novels?	Robert Galbraith	jkrowling.png
+4/26/2025	D5	Lit and Art	Writers	How many publishers rejected Harry Potter: 2, 8, or 12?	Twelve	jkrowling.png
+4/26/2025	D6	Lit and Art	Writers	Before writing Harry Potter, she worked as a researcher for what organization?	Amnesty International	jkrowling.png

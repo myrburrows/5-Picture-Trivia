@@ -1,0 +1,24 @@
+4/24/2025	A1	Lit and Art	Paintings	Leonardo da Vinci painted the ______.	Mona Lisa	monaLisa.png
+4/24/2025	A2	Lit and Art	Paintings	When was the Mona Lisa painted: 1400's, 1500's, or 1600's?	Between 1503 and 1506	monaLisa.png
+4/24/2025	A3	Lit and Art	Paintings	What is the medium of the Mona Lisa?	Oil painting on poplar wood panel.	monaLisa.png
+4/24/2025	A4	Lit and Art	Paintings	Where is the painting housed now?	the Louvre Museum, Paris	monaLisa.png
+4/24/2025	A5	Lit and Art	Paintings	Was the Mona Lisa ever stolen?	Yes, stolen from the Louvre in 1911 and recovered itn 1913.	monaLisa.png
+4/24/2025	A6	Lit and Art	Paintings	What feature of the subject has sparked endless debate?	The smile. It's an enigmatic, subtle expression.	monaLisa.png
+4/24/2025	B1	Nature	Periodic Table of Elements	What molecule is depicted?	Water Molecule	waterMolecule.png
+4/24/2025	B2	Nature	Periodic Table of Elements	What is term for water turning from liquid to gas?	Vaporization	waterMolecule.png
+4/24/2025	B3	Nature	Periodic Table of Elements	At what temperature does water convert from liquid to gas?	100°C (212°F), known as the boiling point.	waterMolecule.png
+4/24/2025	B4	Nature	Periodic Table of Elements	What kind of bond holds the hydrogen and oxygen atoms together?	Covalent bond	waterMolecule.png
+4/24/2025	B5	Nature	Periodic Table of Elements	What force causes water's surface tension?	Hydrogen bonding	waterMolecule.png
+4/24/2025	B6	Nature	Periodic Table of Elements	At what temperature does water convert from liquid to solid?	0°C (32°F), known as the freezing point.	waterMolecule.png
+4/24/2025	C1	History	Generals	Which French general is depicted?	Emperor Napoleon Bonaparte	napoleonBonaparte.png
+4/24/2025	C2	History	Generals	Which famous battle in 1815 marked Napoleon’s final defeat?	Battle of Waterloo	napoleonBonaparte.png
+4/24/2025	C3	History	Generals	What title did Napoleon give himself in 1804?	Emperor of the French	napoleonBonaparte.png
+4/24/2025	C4	History	Generals	What was the name of Napoleon’s first wife?	Josephine. Joséphine de Beauharnais	napoleonBonaparte.png
+4/24/2025	C5	History	Generals	To which island was Napoleon exiled in 1814, but later returned?	Elba	napoleonBonaparte.png
+4/24/2025	C6	History	Generals	On what island was Napoleon born?	Corsica	napoleonBonaparte.png
+4/24/2025	D1	Geography	Countries of the World	What is the country in the photo?	Spain	mapOfSpain.png
+4/24/2025	D2	Geography	Countries of the World	What Spanish dish is a rice-based meal often cooked with seafood, chicken, or vegetables?	Paella	mapOfSpain.png
+4/24/2025	D3	Geography	Countries of the World	Which Spanish festival involves running in the streets of Pamplona?	Running of the Bulls	mapOfSpain.png
+4/24/2025	D4	Geography	Countries of the World	What is the name of the traditional Spanish dance that originated in Andalusia?	Flamenco	mapOfSpain.png
+4/24/2025	D5	Geography	Countries of the World	Which famous Spanish artist painted "Guernica"?	Pablo Picasso	mapOfSpain.png
+4/24/2025	D6	Geography	Countries of the World	What 3 countries have land borders with Spain?	France, Portugal, and Andorra (a principality). Gibraltar is a British territory.	mapOfSpain.png

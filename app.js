@@ -1,184 +1,178 @@
-// Initialize variables
-let data = [];
-let currentQuestionIndex = 0;
-let missedQuestions = [];
-let reviewingMissedQuestions = false;
-let reviewIndex = 0;
-
-function retrieveDataFile(date) {
-    const [month, day, year] = date.split('/');
-    const yearMonth = `20${year}${month}`;
-    const fileName = `data/${yearMonth}/${yearMonth}${day}.txt`;
-
-    fetch(fileName)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`No data file found for the entered date: ${date}`);
-            }
-            return response.text();
-        })
-        .then(text => {
-            if (!text.trim()) {
-                throw new Error(`The data file for ${date} exists but is empty.`);
-            }
-            data = text.trim().split('\n').map((line, index) => {
-                const fields = line.split('\t');
-                console.log(`Line ${index + 1}:`, line); // Log raw line
-                if (fields.length < 4) {
-                    console.warn("Malformed line:", line);
-                    return { key: "", category: "", question: line, answer: "", image: null };
-                }
-                const [key, category, question, answer, ...rest] = fields;
-                const image = rest.length > 0 ? rest.join('\t').trim() : null;
-                return { key, category, question, answer, image };
-            });
-
-            currentQuestionIndex = 0;
-            missedQuestions = [];
-            reviewingMissedQuestions = false;
-            document.getElementById('error-message').textContent = '';
-            displayQuestion();
-        })
-        .catch(error => {
-            console.error('Error loading data:', error);
-            document.getElementById('error-message').textContent = error.message;
+// app.js
+// Function to fetch flashcards from a text file for the given date
+const fetchFlashcards = async (date) => {
+    console.log(`fetchFlashcards called with date: ${date}`);
+    try {
+      // Normalize date to YYYY-MM-DD and extract components
+      const normalizedDate = date.replace(/[^0-9-]/g, '');
+      const [year, month, day] = normalizedDate.split('-');
+      const yearMonth = `${year}${month}`; // e.g., 202504
+      const fileDate = `${year}${month}${day}`; // e.g., 20250424
+      const url = `data/${yearMonth}/${fileDate}.txt`; // Relative path
+      console.log(`Fetching flashcards from: ${url}`);
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
+      }
+      const text = await response.text();
+      console.log(`Fetched data: ${text.substring(0, 100)}...`); // Log first 100 chars
+      if (!text.trim()) {
+        throw new Error('File is empty');
+      }
+      const lines = text.split('\n').filter(line => line.trim());
+      console.log(`Parsed ${lines.length} lines`);
+      if (lines.length !== 24) {
+        throw new Error(`Expected 24 lines, got ${lines.length}`);
+      }
+      const cards = [];
+      for (let i = 0; i < lines.length; i += 6) {
+        const cardLines = lines.slice(i, i + 6);
+        const questions = cardLines.map((line, idx) => {
+          const fields = line.split('\t');
+          if (fields.length !== 7) {
+            throw new Error(`Invalid line format at index ${i + idx}: ${line}`);
+          }
+          const [date, index, topic, subTopic, question, answer, image] = fields;
+          return { date, index, topic, subTopic, question, answer, image };
         });
-}
-
-// Display today's date in the input field as default
-const today = new Date();
-const smallerFormattedDate = today.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: '2-digit' });
-document.getElementById('date-input').value = smallerFormattedDate;
-retrieveDataFile(smallerFormattedDate);
-
-document.getElementById('date-input').addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        const enteredDate = document.getElementById('date-input').value.trim();
-        const datePattern = /^\d{2}\/\d{2}\/\d{2}$/;
-        if (!datePattern.test(enteredDate)) {
-            document.getElementById('error-message').textContent = 'Invalid date format. Use MM/DD/YY.';
-            return;
+        cards.push(questions); // Each card is an array of 6 question objects
+      }
+      console.log(`Parsed ${cards.length} cards`);
+      return cards;
+    } catch (error) {
+      console.error('Error fetching flashcards:', error);
+      throw error;
+    }
+  };
+  
+  // State management for the app
+  const appState = {
+    cards: [], // Array of 4 cards (each with 6 questions)
+    currentCardIndex: 0, // Current card (0 to 3)
+    currentQuestionIndex: 0, // Current question within card (0 to 5)
+    showAnswer: false, // Whether the answer is visible
+    currentDate: new Date().toISOString().split('T')[0], // Today's date (YYYY-MM-DD)
+  };
+  
+  // Function to render the current flashcard state
+  const renderFlashcard = () => {
+    console.log(`renderFlashcard called: card ${appState.currentCardIndex}, question ${appState.currentQuestionIndex}, showAnswer: ${appState.showAnswer}`);
+    const container = document.getElementById('flashcard-container');
+    if (!container) {
+      console.error('flashcard-container not found in DOM');
+      return;
+    }
+    if (!appState.cards.length) {
+      container.innerHTML = '<p>No flashcards loaded. Check console for errors or verify data file.</p>';
+      return;
+    }
+    const card = appState.cards[appState.currentCardIndex];
+    const question = card[appState.currentQuestionIndex];
+    const yearMonth = appState.currentDate.slice(0, 7).replace('-', ''); // e.g., 202504
+    const imagePath = `images/${yearMonth}/${question.image}`;
+  
+    // Build HTML for the current question
+    let html = `
+      <input type="text" id="date-input" value="${appState.currentDate}" />
+      <img src="${imagePath}" alt="Flashcard image" style="max-width: 100%; height: auto;" onerror="this.src='images/placeholder.png'" />
+      <p><strong>Q${appState.currentQuestionIndex + 1}:</strong> ${question.question}</p>
+    `;
+    if (appState.showAnswer) {
+      html += `<p><strong>A${appState.currentQuestionIndex + 1}:</strong> ${question.answer}</p>`;
+    }
+  
+    container.innerHTML = html;
+    console.log('Container updated with HTML:', html.substring(0, 100) + '...');
+  
+    // Update button states
+    const showAnswerBtn = document.getElementById('show-answer-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const lastBtn = document.getElementById('last-btn');
+    if (showAnswerBtn) showAnswerBtn.disabled = appState.showAnswer;
+    if (nextBtn) nextBtn.disabled = !appState.showAnswer;
+    if (lastBtn) lastBtn.disabled = appState.currentCardIndex === 0 && appState.currentQuestionIndex === 0;
+  };
+  
+  // Event handlers for buttons
+  const setupEventListeners = () => {
+    console.log('Setting up event listeners');
+    const dateInput = document.getElementById('date-input');
+    const showAnswerBtn = document.getElementById('show-answer-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const lastBtn = document.getElementById('last-btn');
+  
+    if (dateInput) {
+      dateInput.addEventListener('change', async (e) => {
+        console.log(`Date input changed to: ${e.target.value}`);
+        appState.currentDate = e.target.value;
+        appState.currentCardIndex = 0;
+        appState.currentQuestionIndex = 0;
+        appState.showAnswer = false;
+        try {
+          appState.cards = await fetchFlashcards(appState.currentDate);
+          renderFlashcard();
+        } catch (error) {
+          document.getElementById('flashcard-container').innerHTML = `<p>Error loading flashcards: ${error.message}</p>`;
         }
-
-        const [month, day, year] = enteredDate.split('/').map(Number);
-        const parsedDate = new Date(`20${year}`, month - 1, day);
-        if (
-            parsedDate.getFullYear() !== 2000 + year ||
-            parsedDate.getMonth() !== month - 1 ||
-            parsedDate.getDate() !== day
-        ) {
-            document.getElementById('error-message').textContent = 'Invalid date. Please enter a real calendar date.';
-            return;
+      });
+    }
+  
+    if (showAnswerBtn) {
+      showAnswerBtn.addEventListener('click', () => {
+        console.log('Show Answer clicked');
+        appState.showAnswer = true;
+        renderFlashcard();
+      });
+    }
+  
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        console.log('Next clicked');
+        if (appState.currentQuestionIndex < 5) {
+          appState.currentQuestionIndex++;
+        } else if (appState.currentCardIndex < appState.cards.length - 1) {
+          appState.currentCardIndex++;
+          appState.currentQuestionIndex = 0;
         }
-
-        document.getElementById('error-message').textContent = '';
-        retrieveDataFile(enteredDate);
+        appState.showAnswer = false;
+        renderFlashcard();
+      });
     }
-});
-
-function displayQuestion() {
-    const currentQuestion = reviewingMissedQuestions ? missedQuestions[reviewIndex] : data[currentQuestionIndex];
-    console.log("Current Question:", currentQuestion);
-    
-    document.getElementById("title").textContent = "Roger That: Picture Trivia";
-    document.getElementById('category').textContent = currentQuestion.category || "";
-    // Escape HTML to debug raw string, then set innerHTML
-    const questionText = `${currentQuestion.key || ""}. ${currentQuestion.question || ""}`;
-    console.log("Question Text:", questionText);
-    document.getElementById('question').innerHTML = questionText;
-    document.getElementById('answer').innerHTML = currentQuestion.answer || "";
-    document.getElementById('answer').style.display = 'none';
-
-    const showAnswerButton = document.getElementById('show-answer');
-    showAnswerButton.innerHTML = "Show Answer";
-    showAnswerButton.disabled = false;
-    showAnswerButton.style.backgroundColor = "#4caf50";
-    showAnswerButton.style.color = "white";
-
-    const imageElement = document.getElementById('flashcard-image');
-    if (currentQuestion.image) {
-        imageElement.src = `images/202504/${currentQuestion.image}`;
-        imageElement.style.display = "block";
-    } else {
-        imageElement.style.display = "none";
-    }
-
-    document.getElementById('response-buttons').style.display = reviewingMissedQuestions ? 'none' : 'block';
-    document.getElementById('next-review').style.display = reviewingMissedQuestions ? 'block' : 'none';
-    document.getElementById('review-button').style.display = 'none';
-}
-
-function showAnswer() {
-    const showAnswerButton = document.getElementById('show-answer');
-    showAnswerButton.innerHTML = document.getElementById('answer').innerHTML || "No answer available";
-    showAnswerButton.disabled = true;
-    showAnswerButton.style.backgroundColor = "white";
-    showAnswerButton.style.color = "black";
-}
-
-function recordAnswer(knewIt) {
-    if (!knewIt) {
-        missedQuestions.push(data[currentQuestionIndex]);
-    }
-
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex >= data.length) {
-        if (missedQuestions.length > 0) {
-            document.getElementById('review-button').style.display = 'block';
-            document.getElementById('category').style.display = 'none';
-            document.getElementById('question').style.display = 'none';
-            document.getElementById('response-buttons').style.display = 'none';
-        } else {
-            showExerciseDone();
+  
+    if (lastBtn) {
+      lastBtn.addEventListener('click', () => {
+        console.log('Last clicked');
+        if (appState.currentQuestionIndex > 0) {
+          appState.currentQuestionIndex--;
+        } else if (appState.currentCardIndex > 0) {
+          appState.currentCardIndex--;
+          appState.currentQuestionIndex = 5;
         }
-    } else {
-        displayQuestion();
+        appState.showAnswer = false;
+        renderFlashcard();
+      });
     }
-}
-
-function goToLastQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        displayQuestion();
-    } else {
-        console.log('Already at the first question.');
+  };
+  
+  // Initialize the app
+  const init = async () => {
+    console.log('Initializing app');
+    try {
+      appState.cards = await fetchFlashcards(appState.currentDate);
+      console.log('Flashcards loaded:', appState.cards);
+      renderFlashcard();
+      setupEventListeners();
+    } catch (error) {
+      console.error('Initialization failed:', error);
+      const container = document.getElementById('flashcard-container');
+      if (container) {
+        container.innerHTML = `<p>Error initializing app: ${error.message}</p>`;
+      }
     }
-}
-
-function startReview() {
-    reviewingMissedQuestions = true;
-    reviewIndex = 0;
-    document.getElementById('category').style.display = 'block';
-    document.getElementById('question').style.display = 'block';
-    document.getElementById('response-buttons').style.display = 'none';
-    document.getElementById('next-review').style.display = 'block';
-    document.getElementById('review-button').style.display = 'none';
-    displayQuestion();
-}
-
-function nextReviewQuestion() {
-    reviewIndex++;
-    if (reviewIndex >= missedQuestions.length) {
-        showExerciseDone();
-    } else {
-        displayQuestion();
-    }
-}
-
-function showExerciseDone() {
-    document.getElementById('next-review').style.display = 'none';
-    const flashcardDiv = document.querySelector('.flashcard');
-
-    const doneBox = document.createElement('div');
-    doneBox.textContent = `Exercise Done! You had ${missedQuestions.length} review questions.`;
-    doneBox.style.fontSize = "1.2em";
-    doneBox.style.marginTop = "20px";
-    doneBox.style.padding = "10px";
-    doneBox.style.border = "1px solid #ccc";
-    doneBox.style.borderRadius = "8px";
-    doneBox.style.backgroundColor = "#e0f7fa";
-    doneBox.style.color = "#00796b";
-    
-    flashcardDiv.appendChild(doneBox);
-}
+  };
+  
+  // Run the app when the page loads
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded');
+    init();
+  });
