@@ -5,18 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flashcard App</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
-    #flashcard-container { margin-bottom: 20px; }
-    button { padding: 10px 20px; margin: 5px; }
-    img { display: block; margin: 10px 0; }
-    input { margin: 10px 0; padding: 5px; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    #flashcard-container {
+      margin-bottom: 20px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .button-group {
+      margin: 10px 0;
+    }
+    .button-group button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .flashcard-image {
+      display: block;
+      margin: 10px 0;
+      max-width: 100%;
+      height: auto;
+    }
+    input {
+      margin: 10px 0;
+      padding: 5px;
+      width: 120px;
+    }
+    .qa-container {
+      margin-top: 10px;
+      overflow: hidden;
+      position: relative;
+      min-height: 30px;
+    }
+    .show-answer-btn {
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      float: left;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+    .show-answer-btn:hover {
+      background-color: darkred;
+    }
+    .qa-content {
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    .qa-content p {
+      margin: 5px 0;
+      max-width: 100%;
+    }
+    .card-number {
+      display: inline-block;
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin: 10px 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <div id="flashcard-container"></div>
-  <button id="show-answer-btn">Show Answer</button>
-  <button id="next-btn" disabled>Next</button>
-  <button id="last-btn" disabled>Last</button>
   <script src="app.js"></script>
 </body>
 </html>
